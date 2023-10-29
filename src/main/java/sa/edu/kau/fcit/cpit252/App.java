@@ -25,9 +25,10 @@ public class App {
         return images;
     }
     public static void main(String[] args) {
-        String dataPath = "/opt/homebrew/Cellar/tesseract/5.3.3/share/tessdata";
+        String dataPathOnMac = "/opt/homebrew/Cellar/tesseract/5.3.3/share/tessdata";
+        String dataPathOnWindows = "";
         String key = "A1B2C3-Free";
-        OCRService ocr = new OCRServiceProxy(dataPath, key);
+        OCRService ocr = new OCRServiceProxy(dataPathOnMac, key);
         String[] images = getImages();
         for(String imagePath: images){
             try {
@@ -37,10 +38,5 @@ public class App {
                 throw new RuntimeException(e);
             }
         }
-
-
-//        System.out.println(proxy.recognizeText("image1.png"));
-//        System.out.println(proxy.recognizeText("image2.png"));
-//        System.out.println(proxy.recognizeText("image3.png"));
     }
 }

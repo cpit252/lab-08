@@ -22,15 +22,22 @@ An example of using the Proxy Design Pattern in Java.
     curl -LO https://github.com/tesseract-ocr/tessdata/raw/main/ara.traineddata
     mv ara.traineddata /opt/homebrew/Cellar/tesseract/5.3.3/share/tessdata
     ``` 
-  - If you're on macOS, you may need to add `libtesseract.dylib` to tess4j's jar file:
-    ```shell
-    cd ~/.m2/repository/net/sourceforge/tess4j/tess4j/5.8.0
-    mkdir darwin
-    jar uf tess4j-5.8.0.jar darwin/
-    cp /opt/homebrew/Cellar/tesseract/5.3.3/lib/libtesseract.5.dylib darwin/libtesseract.dylib
-    jar uf tess4j-5.8.0.jar darwin/libtesseract.dylib 
-    jar tf tess4j-5.8.0.jar
-    ```
+    
+## Building
+
+- Import the project into your IDE and reload the maven dependencies.
+- From the command line, run `mvn compile`.
+
+### macOS building issues
+- If you're on macOS, you may need to add `libtesseract.dylib` to tess4j's jar file:
+  ```shell
+  cd ~/.m2/repository/net/sourceforge/tess4j/tess4j/5.8.0
+  mkdir darwin
+  jar uf tess4j-5.8.0.jar darwin/
+  cp /opt/homebrew/Cellar/tesseract/5.3.3/lib/libtesseract.5.dylib darwin/libtesseract.dylib
+  jar uf tess4j-5.8.0.jar darwin/libtesseract.dylib 
+  jar tf tess4j-5.8.0.jar
+  ```
 
 ### License
 MIT

@@ -25,10 +25,11 @@ public class App {
         return images;
     }
     public static void main(String[] args) {
-        String dataPathOnMac = "/opt/homebrew/Cellar/tesseract/5.3.3/share/tessdata";
-        String dataPathOnWindows = "";
+        String dataPathOnMacBrew = "/opt/homebrew/Cellar/tesseract/5.3.3/share/tessdata";
+        String dataPathOnMacPorts = "/opt/local/share/tessdata";
+        String dataPathOnWindows = "C:\\Program Files\\Tesseract-OCR\\tessdata";
         String key = "A1B2C3-Free";
-        OCRService ocr = new OCRServiceProxy(dataPathOnMac, key);
+        OCRService ocr = new OCRServiceProxy(dataPathOnWindows, key);
         String[] images = getImages();
         for(String imagePath: images){
             try {
